@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Mobilprogramozas2022FOSZ</string>
+    <string name="iranyitoszam">Irányítószám</string>
+    <string name="varos">Város</string>
+    <string name="utca">Utca</string>
+    <string name="hazszam">Házszám</string>
+    <string name="kuldes">Küldés</string>
+</resources>

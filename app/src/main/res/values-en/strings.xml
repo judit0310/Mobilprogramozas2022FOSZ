@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iranyitoszam">Zip Code</string>
+    <string name="varos">City</string>
+    <string name="utca">Street</string>
+    <string name="hazszam">House Number</string>
+    <string name="kuldes">Send</string>
+</resources>
