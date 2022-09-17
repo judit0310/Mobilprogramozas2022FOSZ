@@ -1,9 +1,11 @@
 package hu.uni.miskolc.mobilprogramozas2022fosz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -30,7 +32,30 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         kuldesGomb = findViewById(R.id.kuldesGomb);
         kuldesGomb.setOnClickListener(view -> {
-            //TODO
-        });
+            ViewGroup layout = findViewById(R.id.alap);
+            if(kivanToltve(layout)) {
+                System.out.println("A kapott iranyitoszam: " + iranyitoszamBevitel.getText().toString());
+            } });
+    }
+
+    private boolean kivanToltve(ViewGroup viewGroup) {
+        boolean result = true;
+        int count = viewGroup.getChildCount();
+        for (int i = 0; i< count; i++){
+            View view = viewGroup.getChildAt(i);
+            if (view instanceof ViewGroup){
+                result = kivanToltve((ViewGroup) view);
+            }
+            else if(view instanceof EditText){
+                EditText editText = (EditText) view;
+                String ertek = editText.getText().toString();
+                if (ertek.trim().isEmpty()){
+                    result = false;
+                    editText.setError("Kötelező kitölteni");
+                }
+            }
+
+        }
+        return result;
     }
 }
