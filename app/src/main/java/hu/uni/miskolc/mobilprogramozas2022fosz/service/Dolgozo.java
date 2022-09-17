@@ -1,6 +1,8 @@
 package hu.uni.miskolc.mobilprogramozas2022fosz.service;
 
-public class Dolgozo {
+import java.io.Serializable;
+
+public class Dolgozo implements Serializable {
 
     private int id;
     private String keresztNev;

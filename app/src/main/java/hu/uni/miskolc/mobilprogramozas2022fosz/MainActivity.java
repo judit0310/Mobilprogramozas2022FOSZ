@@ -7,17 +7,22 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.util.List;
 
 import hu.uni.miskolc.mobilprogramozas2022fosz.service.Dolgozo;
 import hu.uni.miskolc.mobilprogramozas2022fosz.service.DolgozoService;
+import hu.uni.miskolc.mobilprogramozas2022fosz.service.ZeneLejatszas;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,7 +75,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageButton playGomb = findViewById(R.id.playGomb);
+        playGomb.setOnClickListener(view -> {
 
+            Intent intent = new Intent(MainActivity.this, ZeneLejatszas.class);
+            startService(intent);
+        });
+
+
+        ImageButton stopGomb = findViewById(R.id.stopGomb);
+        stopGomb.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ZeneLejatszas.class);
+            stopService(intent);
+        });
     }
 
     private boolean kivanToltve(ViewGroup viewGroup) {

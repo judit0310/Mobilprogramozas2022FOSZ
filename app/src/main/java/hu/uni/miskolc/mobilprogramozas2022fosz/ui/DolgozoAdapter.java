@@ -16,6 +16,10 @@ public class DolgozoAdapter extends RecyclerView.Adapter<DolgozoViewHolder> {
 
     private List<Dolgozo> dolgozok;
 
+    private DolgozoKivalasztListener listener;
+
+
+
     public DolgozoAdapter(List<Dolgozo> dolgozok) {
         this.dolgozok = dolgozok;
     }
@@ -24,12 +28,16 @@ public class DolgozoAdapter extends RecyclerView.Adapter<DolgozoViewHolder> {
         this.dolgozok = dolgozok;
     }
 
+    public void setListener(DolgozoKivalasztListener listener) {
+        this.listener = listener;
+    }
+
     @NonNull
     @Override
     public DolgozoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LinearLayout layout = (LinearLayout) LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.dolgozo_sor, parent, false);
-        DolgozoViewHolder vh = new DolgozoViewHolder(layout);
+        DolgozoViewHolder vh = new DolgozoViewHolder(layout, listener);
         return vh;
     }
 
