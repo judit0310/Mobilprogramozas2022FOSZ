@@ -14,6 +14,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.List;
+
+import hu.uni.miskolc.mobilprogramozas2022fosz.service.Dolgozo;
+import hu.uni.miskolc.mobilprogramozas2022fosz.service.DolgozoService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
     Button kuldesGomb;
     EditText iranyitoszamBevitel;
@@ -53,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra("cim",cim);
                startActivity(intent);
             } });
+
+        Button adatGomb = findViewById(R.id.adatGomb);
+        adatGomb.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, Adatok.class);
+            startActivity(intent);
+        });
+
+
     }
 
     private boolean kivanToltve(ViewGroup viewGroup) {

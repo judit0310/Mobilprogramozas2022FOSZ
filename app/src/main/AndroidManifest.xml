@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="hu.uni.miskolc.mobilprogramozas2022fosz">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobilprogramozas2022FOSZ"
         tools:targetApi="31">
+        <activity
+            android:name=".Adatok"
+            android:exported="false" />
         <activity
             android:name=".CimKiir"
             android:exported="false" />
