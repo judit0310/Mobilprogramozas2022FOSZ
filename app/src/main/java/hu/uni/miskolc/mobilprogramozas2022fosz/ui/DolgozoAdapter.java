@@ -36,9 +36,9 @@ public class DolgozoAdapter extends RecyclerView.Adapter<DolgozoViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DolgozoViewHolder holder, int position) {
         Dolgozo d = dolgozok.get(position);
-        holder.id.setText(String.valueOf(d.getId()));
-        holder.keresztNev.setText(d.getKeresztNev());
-        holder.vezetekNev.setText(d.getVezetekNev());
+        holder.id.setText(String.valueOf(d.getId()).trim());
+        holder.keresztNev.setText(d.getKeresztNev().trim());
+        holder.vezetekNev.setText(d.getVezetekNev().trim());
 
     }
     @Override
