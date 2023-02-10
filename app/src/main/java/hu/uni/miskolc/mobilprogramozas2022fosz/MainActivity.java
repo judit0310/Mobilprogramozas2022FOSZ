@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     EditText varosBevitel;
     EditText utcaBevitel;
     EditText hazszamBevitel;
+    private Intent serviceIntent;
 
 
     @Override
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 if (result != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},101);
                 }
+        serviceIntent = new Intent(MainActivity.this, ZeneLejatszas.class);
     }
 
     @Override
@@ -76,17 +78,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ImageButton playGomb = findViewById(R.id.playGomb);
+
         playGomb.setOnClickListener(view -> {
 
-            Intent intent = new Intent(MainActivity.this, ZeneLejatszas.class);
-            startService(intent);
+
+            startService(serviceIntent);
         });
 
 
         ImageButton stopGomb = findViewById(R.id.stopGomb);
         stopGomb.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, ZeneLejatszas.class);
-            stopService(intent);
+           // Intent intent = new Intent(MainActivity.this, ZeneLejatszas.class);
+            stopService(serviceIntent);
         });
     }
 
